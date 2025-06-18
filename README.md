@@ -61,27 +61,28 @@ Message: string型にも対応してます
 ```
 
 ---
+
 ## 📂 導入方法 / How to Install
 
 ### ✅ 手順①：ヘッダファイルをコピーする
 
 `include/debug_log/debug_log.hpp` をプロジェクト内にコピーし、以下のようにインクルードしてください：  
 
-
 ```cpp
 #include <debug_log/debug_log.hpp>
 ```
 
-### ✅ 手順②：CMakeプロジェクトに追加する
+### ✅ 手順②：CMakeプロジェクトに手動で組み込む
 
-このリポジトリをサブディレクトリとして追加し、CMakeで次のように設定します：  
-Add this repo as a subdirectory in your project and link it like this:  
+CMakeLists.txt に以下を追加してください。  
+（your_target は自分の実行ファイル名に置き換えてください）
 
 ```cmake
-add_subdirectory(cpp-debug-log)
-target_link_libraries(your_target PRIVATE debug_log)
+add_library(debug_log INTERFACE)
+target_include_directories(your_target PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 ```
 
+---
 
 ### ✅ Method 1: Copy the file directly
 
@@ -92,13 +93,14 @@ Then, include it with:
 #include <debug_log/debug_log.hpp>
 ```
 
-### ✅ Method 2: Add to your CMake project
+### ✅ Method 2: Manually add to your CMake project
 
-Add this repo as a subdirectory in your project and link it like this:
+Then, simply register the include path like this:  
+(Replace `your_target` with your actual executable name)
 
 ```cmake
-add_subdirectory(cpp-debug-log)
-target_link_libraries(your_target PRIVATE debug_log)
+add_library(debug_log INTERFACE)
+target_include_directories(your_target PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 ```
 
 ---
