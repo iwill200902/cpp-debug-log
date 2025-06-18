@@ -2,6 +2,13 @@
 #include <iostream>
 #include <string>
 
+inline void debug_log_internal(const char* file, int line) {
+    static int count = 0;
+    std::cout << "Debug Log No. " << ++count
+              << " (at " << file << ":" << line << ")" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+}
+
 inline void debug_log_internal(const char* file, int line, const std::string& message) {
     static int count = 0;
     std::cout << "Debug Log No. " << ++count
