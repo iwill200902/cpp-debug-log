@@ -40,7 +40,6 @@ This is a small debug log macro for C++ that automatically shows:
 
 int main() {
     debug_log(); // 引数なしでも使えます
-
     debug_log("最初のログです");
 
     std::string msg = "string型にも対応してます";
@@ -62,17 +61,40 @@ Message: string型にも対応してます
 ```
 
 ---
+## 📂 導入方法 / How to Install
 
-## 📂 導入方法 / Installation
+### ✅ 方法①：ヘッダファイルをコピーする
 
-### ✅ 方法①：ファイルを直接コピー（簡単）
+`include/debug_log/debug_log.hpp` をプロジェクト内にコピーし、以下のようにインクルードしてください：  
 
-`include/debug_log/debug_log.hpp` を自分のプロジェクトにコピーしてください。  
-`#include <debug_log/debug_log.hpp>` で使えます。
 
-### ✅ 方法②：CMakeで追加
+```cpp
+#include <debug_log/debug_log.hpp>
+```
 
-CMakeプロジェクトにサブディレクトリとして追加して使えます：
+### ✅ 方法②：CMakeプロジェクトに追加する
+
+このリポジトリをサブディレクトリとして追加し、CMakeで次のように設定します：  
+Add this repo as a subdirectory in your project and link it like this:  
+
+```cmake
+add_subdirectory(cpp-debug-log)
+target_link_libraries(your_target PRIVATE debug_log)
+```
+
+
+### ✅ Method 1: Copy the file directly
+
+Copy `include/debug_log/debug_log.hpp` into your project.  
+Then, include it with:
+
+```cpp
+#include <debug_log/debug_log.hpp>
+```
+
+### ✅ Method 2: Add to your CMake project
+
+Add this repo as a subdirectory in your project and link it like this:
 
 ```cmake
 add_subdirectory(cpp-debug-log)
@@ -81,16 +103,9 @@ target_link_libraries(your_target PRIVATE debug_log)
 
 ---
 
-## 🔧 カスタマイズ例 / Customization Ideas
-
-- ログレベル（INFO, WARN）をつける
-- 時刻やスレッドIDも出す
-- `#ifdef DEBUG` でON/OFF切り替え
-
-Pull requests & improvements welcome!
-
----
-
 ## 📄 ライセンス / License
 
 このリポジトリは [MIT License](LICENSE) です。商用・非商用問わずご自由にどうぞ。
+
+This repository is licensed under the [MIT License](LICENSE).  
+Feel free to use it for both personal and commercial projects.
