@@ -2,15 +2,22 @@
 #include <iostream>
 #include <string>
 
+namespace debug_log_internal_ns {
+    inline int& get_count() {
+        static int count = 0;
+        return count;
+    }
+}
+
 inline void debug_log_internal(const char* file, int line) {
-    static int count = 0;
+    int& count = debug_log_internal_ns::get_count();
     std::cout << "Debug Log No. " << ++count
               << " (at " << file << ":" << line << ")" << std::endl;
     std::cout << "----------------------------------------" << std::endl;
 }
 
 inline void debug_log_internal(const char* file, int line, const std::string& message) {
-    static int count = 0;
+    int& count = debug_log_internal_ns::get_count();
     std::cout << "Debug Log No. " << ++count
               << " (at " << file << ":" << line << ")" << std::endl;
     if (!message.empty()) {
