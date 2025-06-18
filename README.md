@@ -63,7 +63,7 @@ Message: string型にも対応してます
 ---
 ## 📂 導入方法 / How to Install
 
-### ✅ 方法①：ヘッダファイルをコピーする
+### ✅ 手順①：ヘッダファイルをコピーする
 
 `include/debug_log/debug_log.hpp` をプロジェクト内にコピーし、以下のようにインクルードしてください：  
 
@@ -72,7 +72,7 @@ Message: string型にも対応してます
 #include <debug_log/debug_log.hpp>
 ```
 
-### ✅ 方法②：CMakeプロジェクトに追加する
+### ✅ 手順②：CMakeプロジェクトに追加する
 
 このリポジトリをサブディレクトリとして追加し、CMakeで次のように設定します：  
 Add this repo as a subdirectory in your project and link it like this:  
